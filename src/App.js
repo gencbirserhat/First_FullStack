@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
+import AppContext from "./component/context/AppContext";
 import EmployeeAdd from "./component/employeeAdd/EmployeeAdd";
 import EmployeeList from "./component/employeeList/EmployeeList";
-import { employee } from "./data/data";
+import EmployeeUpdate from "./component/employeeUpdate/EmployeeUpdate";
+
 function App() {
-  const [List, setList] = React.useState(employee);
+  const { appName } = useContext(AppContext);
   return (
     <div>
-      <h1> Employees App</h1>
-      <EmployeeList employee={List} setList={setList} />
-      <EmployeeAdd employee={List} setList={setList} />
+      <h1> {appName} </h1>
+      <EmployeeList />
+      <EmployeeAdd />
+      <EmployeeUpdate />
     </div>
   );
 }

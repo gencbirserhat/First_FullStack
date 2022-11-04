@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
+import AppContext from "../context/AppContext";
 import Employee from "./employee/Employee";
 
-function EmployeeList({ employee, setList }) {
+function EmployeeList() {
+  const { employee, setList, setSelectedEmployee } = useContext(AppContext);
   const handleClearAll = () => {
     setList([]);
   };
@@ -13,7 +15,12 @@ function EmployeeList({ employee, setList }) {
     <div>
       <h3>Employee List {employee.length}</h3>
       {employee.map((emp, index) => (
-        <Employee employee={emp} key={index} handleRemove={handleRemove} />
+        <Employee
+          setSelectedEmployee={setSelectedEmployee}
+          employee={emp}
+          key={index}
+          handleRemove={handleRemove}
+        />
       ))}
       <button onClick={handleClearAll}>Clear All</button>
     </div>

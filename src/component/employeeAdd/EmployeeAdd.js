@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
+import AppContext from "../context/AppContext";
 
-function EmployeeAdd({ employee, setList }) {
+function EmployeeAdd() {
+  const { employee, setList } = useContext(AppContext);
   const [Values, setValues] = React.useState({
     firstName: "",
     lastName: "",
