@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
 
 function EmployeeUpdate() {
   const { employee, setList, SelectedEmployee, setSelectedEmployee } =
     useContext(AppContext);
+  const navigate = useNavigate();
   const handleChange = (e) => {
     setSelectedEmployee({
       ...SelectedEmployee,
@@ -19,6 +21,7 @@ function EmployeeUpdate() {
         ...employee.filter((emp) => emp.id !== SelectedEmployee.id),
         SelectedEmployee,
       ]);
+      navigate(`/employees`);
     }
   };
   return (
