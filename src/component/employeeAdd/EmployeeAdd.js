@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
 
 function EmployeeAdd() {
+  const navigate = useNavigate();
   const { employee, setList } = useContext(AppContext);
   const [Values, setValues] = React.useState({
     firstName: "",
@@ -12,6 +14,7 @@ function EmployeeAdd() {
     e.preventDefault();
     if (Values.firstName.length + Values.lastName.length > 2) {
       handleSubmit(e);
+      navigate(`/employees`);
     } else {
       window.alert("Lütfen Değer Giriniz!");
     }
