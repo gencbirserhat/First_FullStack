@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { data } from "../../data/data";
 import AppContext from "../context/AppContext";
 import Employee from "./employee/Employee";
 
@@ -10,6 +11,10 @@ function EmployeeList() {
 
   const handleRemove = (id) => {
     setList(employee.filter((emp) => emp.id !== id));
+  };
+
+  const handleGetAll = () => {
+    setList(data);
   };
   return (
     <div>
@@ -23,6 +28,7 @@ function EmployeeList() {
         />
       ))}
       <button onClick={handleClearAll}>Clear All</button>
+      <button onClick={handleGetAll}>Get All</button>
     </div>
   );
 }
