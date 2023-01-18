@@ -3,9 +3,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import EmployeeAdd from "../employeeAdd/EmployeeAdd";
 import EmployeeList from "../employeeList/EmployeeList";
 import EmployeeUpdate from "../employeeUpdate/EmployeeUpdate";
-import Contact from "../contact/Contact";
 import Counter from "../counter/Counter";
-import ContactAdd from "../contact/ContactAdd";
 
 const RoutePath = () => {
   return (
@@ -18,13 +16,8 @@ const RoutePath = () => {
           element={<EmployeeUpdate />}
         ></Route>
         <Route path="/counter" element={<Counter />}></Route>
-        <Route path="/contacts" element={<Contact />}></Route>
-        <Route path="/contacts/add" element={<ContactAdd />}></Route>
       </Routes>
       <ul>
-        <li>
-          <Link to="/contacts">Contact App</Link>
-        </li>
         <li>
           <Link to="/employees">Employees</Link>
         </li>

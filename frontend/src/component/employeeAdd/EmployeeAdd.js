@@ -4,7 +4,8 @@ import AppContext from "../context/AppContext";
 
 function EmployeeAdd() {
   const navigate = useNavigate();
-  const { employee, setList } = useContext(AppContext);
+  const { postOneEmployee } = useContext(AppContext);
+
   const [Values, setValues] = React.useState({
     firstName: "",
     lastName: "",
@@ -23,13 +24,8 @@ function EmployeeAdd() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setList([
-      ...employee,
-      {
-        id: employee.length + 1,
-        ...Values,
-      },
-    ]);
+
+    postOneEmployee({ ...Values, salary: 10 });
 
     setValues({
       firstName: "",

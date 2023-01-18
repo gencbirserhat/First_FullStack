@@ -3,8 +3,13 @@ import { useNavigate } from "react-router-dom";
 import AppContext from "../context/AppContext";
 
 function EmployeeUpdate() {
-  const { employee, setList, SelectedEmployee, setSelectedEmployee } =
-    useContext(AppContext);
+  const {
+    employee,
+    setList,
+    SelectedEmployee,
+    setSelectedEmployee,
+    putOneEmployee,
+  } = useContext(AppContext);
   const navigate = useNavigate();
   const handleChange = (e) => {
     setSelectedEmployee({
@@ -14,15 +19,9 @@ function EmployeeUpdate() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (SelectedEmployee.id === 0) {
-      window.alert("Öncelikle bir Employee seçmelisiniz");
-    } else {
-      setList([
-        ...employee.filter((emp) => emp.id !== SelectedEmployee.id),
-        SelectedEmployee,
-      ]);
-      navigate(`/employees`);
-    }
+    putOneEmployee(SelectedEmployee.id, SelectedEmployee);
+    setList([...employee]);
+    navigate(`/employees`);
   };
   return (
     <div>
