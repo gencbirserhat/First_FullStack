@@ -4,6 +4,17 @@ import AppContext from "./component/context/AppContext";
 import RoutePath from "./component/router/RoutePath";
 import "./App.css";
 
+const students = [
+  { name: "Ali", grade: "A" },
+  { name: "Veli", grade: "B" },
+];
+
+function getStudents(array, grade) {
+  array.filter((stu) => stu.grade !== grade);
+}
+
+console.log(getStudents(students, "A"));
+
 function App() {
   const { appName } = useContext(AppContext);
   return (
